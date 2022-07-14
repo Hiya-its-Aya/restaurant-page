@@ -2,21 +2,21 @@
 (()=>{
     "use strict";
     const content = document.querySelector("#content");
-    const head  = document.createElement("header");
-    head.textContent= "1001 Nights"
+    const header  = document.createElement("header");
+    header.textContent= "1001 Nights"
 
     const list = document.createElement("ul")
-    const listItem1 = document.createElement("li");
-    listItem1.className="home";
-    listItem1.textContent ="Home";
+    const homeItem = document.createElement("li");
+    homeItem.className="home";
+    homeItem.textContent ="Home";
 
-    const listItem2 = document.createElement("li");
-    listItem1.className="menu";
-    listItem2.textContent ="Menu";
+    const menuItem = document.createElement("li");
+    menuItem.className="menu";
+    menuItem.textContent ="Menu";
 
-    const listItem3 = document.createElement("li");
-    listItem3.className="contact";
-    listItem3.textContent ="Contact Us";
+    const contactItem = document.createElement("li");
+    contactItem.className="contact";
+    contactItem.textContent ="Contact Us";
 
     const mainCon = document.createElement("div");
     mainCon.id = "container"
@@ -24,12 +24,18 @@
     const footer = document.createElement("footer");
     footer.textContent = "Made by Aya Moosa"
 
-    content.append(head, mainCon, footer);
-    head.appendChild(list);
-    list.append(listItem1, listItem2, listItem3);
+    content.append(header, mainCon, footer);
+    header.appendChild(list);
+    list.append(homeItem, menuItem, contactItem);
+
+    //make homepage
+    //make menu 
+    //make contact 
+    //add event listener to li
+
+    homeItem.addEventListener("click", () => {
+            alert("Home");
+    })
 
 
-
-
-    
 })();
