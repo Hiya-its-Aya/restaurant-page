@@ -4,7 +4,7 @@
     "use strict";
     const content = document.querySelector("#content");
     const header  = document.createElement("header");
-    header.textContent= "Desert Rose"
+    header.textContent= "DESERT ROSE"
 
     const list = document.createElement("ul")
     const homeItem = document.createElement("li");
@@ -69,23 +69,59 @@
 
             const para2 = document.createElement('p');
             para2.className = "party"
-            para2.textContent = "Every first and third Friday and second and fourth Saturday of the month, there is live Middle Eastern music and Dancing! Check out menu for pricing!"
+            para2.textContent = "Every first and third Friday and second and fourth Saturday of the month, there is live Middle Eastern music! Check out menu for pricing!"
             
             const menuBtn = document.createElement('button');
             menuBtn.className = "menu-button";
             menuBtn.textContent = "MENU";
 
+            mainCon.style = "display: flex"
 
             mainCon.append(title, para1, hours, para2, menuBtn);
         }
         
         return{info, makeHome}
     };
+    
     //make menu 
+    const menuPage = () =>{
+        const Menu  = (type, item, price) =>{
+            this.type = type;
+            this.item = item;
+            this.price = price; 
+
+            return {type, item, price}
+        }
+
+        const makeMenu = () => {
+            const soda = Menu("Drink", "Soda", 2);
+            const arabCof = Menu('Drink', "Arabic Coffee, one serving", 2);
+            const arabCofLg = Menu("Drink", "Arabic Coffee, 2-3 servings", 5);
+            const teaSml = Menu('Drink', "Tea, one serving", 2);
+            const teaLrg = Menu("Drink", "Pot of tea, 3-4 servings", 7);
+            const drinkArray = [soda, arabCof, arabCofLg, teaSml, teaLrg];
+            const drinks = document.createElement('div');
+            drinks.textContent = "Drinks:"
+            drinks.className = 'drink-div';
+            mainCon.appendChild(drinks);
+                for (let i = 0; i < drinkArray.length; i++){
+                    const items = document.createElement('p');
+                    items.textContent = drinkArray[i].item + ": $" + drinkArray[i].price;
+                    drinks.appendChild(items);
+                }
+                drinks.style = "display: grid; grid-template-rows: repeat(2, 1fr);  grid-template-columns: repeat(2,1fr); gap: 5%; align-items:unset ";
+
+            const mansaf = Menu
+
+            }
+        return{Menu, makeMenu}
+    }
+    
     //make contact 
     //add event listener to li
 
     const home = homePage();
+    const menu = menuPage();
     home.makeHome();
 
     homeItem.addEventListener("click", () => {
@@ -93,6 +129,10 @@
         home.makeHome();
     })
 
+    menuItem.addEventListener('click', () =>{
+        clearCon();
+        menu.makeMenu();
+    })
 
 })();
 
