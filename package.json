@@ -29,7 +29,7 @@
     "loadsh": "^0.0.4"
   },
   "output": {
-    "filename": "main.js",
+    "filename": "index.js",
     "path":"/"
   }
 }
