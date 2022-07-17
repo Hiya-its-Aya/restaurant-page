@@ -89,7 +89,7 @@ import './style.css';
     };
     
     //make menu 
-    const menuPage = () =>{
+    const menuPage = () => {
         const Menu  = (category, item, price, discription) =>{
             this.category = category;
             this.item = item;
@@ -106,7 +106,7 @@ import './style.css';
             const foodArray = [mansaf, kebab, falafel, manaeesh];
             const food = document.createElement('div')
             food.className ="food-div";
-            food.textContent = "Food:"
+            food.textContent = falafel.category; + ": "
             mainCon.appendChild(food);
             for (let i = 0; i < foodArray.length; i++){
                 const items = document.createElement('div');
