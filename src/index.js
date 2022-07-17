@@ -78,6 +78,11 @@
             mainCon.style = "display: flex"
 
             mainCon.append(title, para1, hours, para2, menuBtn);
+            menuBtn.addEventListener("click", () => {
+                clearCon();
+                menu.makeMenu();
+        
+            })
         }
         
         return{info, makeHome}
@@ -93,8 +98,26 @@
 
             return {type, item, price, discription}
         }
-
         const makeMenu = () => {
+            const mansaf = Menu("Food", "Mansaf", 17, "A mouth watering, rich dish of lamb slow-cooked in a yougurt sauce on a bed of perfectly-cooked tumeric-yellow rice, served with extra suace and a salad")
+            const kebab = Menu("Food","Kebab", 15, "Your choice of tender ground beef or juicy marinated chicken grilled to perfection, served with fluffy rice, salad, hummus and fresh-baked pita bread. Sub steak kabob for $2")
+            const falafel = Menu("Food", "Falafel", 12, "Deep-fried to perfection, served with fluffy rice, hummus,and bread.")
+            const manaeesh = Menu("Food", "Mana'eesh", 7, "Your choice of delicous cheese, zaataar, or beef arabic pizzas. Great with tea!")
+            const foodArray = [mansaf, kebab, falafel, manaeesh];
+            const food = document.createElement('div')
+            food.className ="food-div";
+            food.textContent = "Food:"
+            mainCon.appendChild(food);
+            for (let i = 0; i < foodArray.length; i++){
+                const items = document.createElement('div');
+                const disc = document.createElement('div')
+                items.className = "food-item";
+                items.textContent = foodArray[i].item + ": $" + foodArray[i].price;
+                disc.textContent = foodArray[i].discription;
+                items.appendChild(disc);
+                food.appendChild(items);
+            };
+            //make drinks 
             const soda = Menu("Drink", "Soda", 2, null);
             const arabCof = Menu('Drink', "Arabic Coffee, one serving", 2, null);
             const arabCofLg = Menu("Drink", "Arabic Coffee, 2-3 servings", 5, null);
@@ -102,32 +125,65 @@
             const teaLrg = Menu("Drink", "Pot of tea, 3-4 servings", 7, null);
             const drinkArray = [soda, arabCof, arabCofLg, teaSml, teaLrg];
             const drinks = document.createElement('div');
-            mainCon.style = "display: grid; grid-template-columns:repeat(auto-fill, minmax(350px, 1fr)); grid-template-rows:repeat(auto-fill, minmax(350px, 1fr)); align-items:unset "
-            drinks.style = "display: grid; grid-template-columns:repeat(2, 1fr); gap: 5%; ";
+            // mainCon.style = "display: grid; grid-template-columns:repeat(auto-fill, minmax(350px, .5fr)); grid-template-rows:repeat(auto-fill, minmax(350px, .5fr)); align-items:unset "
             drinks.textContent = "Drinks:"
             drinks.className = 'drink-div';
             mainCon.appendChild(drinks);
-                for (let i = 0; i < drinkArray.length; i++){
+            for (let i = 0; i < drinkArray.length; i++){
                     const items = document.createElement('div');
                     items.className = "drink-item";
                     items.textContent = drinkArray[i].item + ": $" + drinkArray[i].price;
                     drinks.appendChild(items);
-                }
-                drinks.style = "display: grid; grid-template-columns:repeat(2, 1fr); gap: 5%; align-items:unset ";
-            const mansaf = Menu("Food", "Mansaf", 17, "A mouth watering, rich dish of lamb slow-cooked in a yougurt sauce on a bed of perfectly-cooked tumeric-yellow rice, served with extra suace and a salad")
-            const kebab = Menu("Food","Kebab", 15, "Your choice of tender ground beef or juicy marinated chicken grilled to perfection, served with fluffy rice, salad, hummus and fresh-baked pita bread. Steak kabob add $2")
-            const falafel = Menu("Food", "Falafel", 12, "Deep-fried to perfection, served with fluffy rice, hummus, ")
-            const manaeesh = Menu("Food", "Mana'eesh", 7)
-            // const foodArray 
+                };
+            
+            //make desserts
+            const baklava = Menu("Dessert", "Baklava", 2, null);
+            const warbat = Menu("Dessert", "Warbat", 2, null);
+            const cheesecake = Menu("Dessert", "Cheesecake", 5, null)
+            const dessertArray = [baklava, warbat,cheesecake];
+            const desserts = document.createElement('div');
+            desserts.textContent = "Desserts:";
+            desserts.className = 'dessert-div';
+            mainCon.appendChild(desserts);
+            for (let i = 0; i < dessertArray.length; i++){
+                    const items = document.createElement('div');
+                    items.className = "dessert-item";
+                    items.textContent = dessertArray[i].item + ": $" + dessertArray[i].price;
+                    desserts.appendChild(items);
+                };
+            const setMenu = document.createElement("div")
+            setMenu.className = "set-menu-text";
+            setMenu.textContent = "Music Nights: Set menu only, $30 per person. Pick one of each single-serving drink, one main course and one dessert.";
+            mainCon.append(setMenu);
+            mainCon.style = "display: grid; align-items: unset";      
         }   
         return{Menu, makeMenu}
     }
     
     //make contact 
+    const contactPage = () =>{
+        const info = {
+            address: "123 Riptide Way, Los Angeles, CA 90054",
+            phone: "(310) 222-2222",
+            owner: "Abdul Haleem Hafiz",
+            manager: "Nancy Ajram",
+            email: "desertrose@notmail.com"
+        };
+        const makeContact = () => {
+           const information = document.createElement('p');
+           information.className = "contact-info";
+           information.innerHTML = "Owner: " + info.owner + "<br> Manager: " +info.manager + "<br> Email: " + info.email + "<br> Phone: " + info.phone + "<br> Address: " + info.address;
+           mainCon.appendChild(information);
+        };
+        return {info, makeContact}
+    }
+
     //add event listener to li
 
     const home = homePage();
     const menu = menuPage();
+    const contact = contactPage();
+    
     home.makeHome();
 
     homeItem.addEventListener("click", () => {
@@ -138,6 +194,11 @@
     menuItem.addEventListener('click', () =>{
         clearCon();
         menu.makeMenu();
+    })
+
+    contactItem.addEventListener('click', ()=>{
+        clearCon();
+        contact.makeContact();
     })
 
 })();
