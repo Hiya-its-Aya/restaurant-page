@@ -93,5 +93,7 @@ h3{
     /* color: black; */
     padding: .5rem;
     align-items: unset;
+    width: max-content;
+    height: max-content;
 }
 
