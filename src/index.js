@@ -90,13 +90,13 @@ import './style.css';
     
     //make menu 
     const menuPage = () =>{
-        const Menu  = (type, item, price, discription) =>{
-            this.type = type;
+        const Menu  = (category, item, price, discription) =>{
+            this.category = category;
             this.item = item;
             this.price = price;
             this.discription = discription; 
 
-            return {type, item, price, discription}
+            return {category, item, price, discription}
         }
         const makeMenu = () => {
             const mansaf = Menu("Food", "Mansaf", 17, "A mouth watering, rich dish of lamb slow-cooked in a yougurt sauce on a bed of perfectly-cooked tumeric-yellow rice, served with extra suace and a salad")
