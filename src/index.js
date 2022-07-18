@@ -90,7 +90,8 @@ import './style.css';
     
     //make menu 
     const menuPage = () => {
-        const Menu  = (category, item, price, discription) =>{
+        const Menu  = (category, item, price, discription) => {
+            
             this.category = category;
             this.item = item;
             this.price = price;
