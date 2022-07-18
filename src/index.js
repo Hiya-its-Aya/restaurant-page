@@ -1,4 +1,5 @@
 import './style.css';
+
 (()=>{
     
     "use strict";
@@ -90,16 +91,19 @@ import './style.css';
     
     //make menu 
     const menuPage = () => {
+    
         const Menu  = (category, item, price, discription) => {
-            
-            this.category = category;
-            this.item = item;
-            this.price = price;
-            this.discription = discription; 
+            var name = {};
+        
+            name.category = category;
+            name.item = item;
+            name.price = price;
+            name.discription = discription; 
 
-            return {category, item, price, discription}
+            return {name, category, item, price, discription};
         }
         const makeMenu = () => {
+        
             const mansaf = Menu("Food", "Mansaf", 17, "A mouth watering, rich dish of lamb slow-cooked in a yougurt sauce on a bed of perfectly-cooked tumeric-yellow rice, served with extra suace and a salad")
             const kebab = Menu("Food","Kebab", 15, "Your choice of tender ground beef or juicy marinated chicken grilled to perfection, served with fluffy rice, salad, hummus and fresh-baked pita bread. Sub steak kabob for $2")
             const falafel = Menu("Food", "Falafel", 12, "Deep-fried to perfection, served with fluffy rice, hummus,and bread.")
@@ -118,6 +122,7 @@ import './style.css';
                 items.appendChild(disc);
                 food.appendChild(items);
             };
+            console.log(mansaf.category);
             //make drinks 
             const soda = Menu("Drink", "Soda", 2, null);
             const arabCof = Menu('Drink', "Arabic Coffee, one serving", 2, null);
